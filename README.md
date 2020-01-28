@@ -23,8 +23,8 @@ With OpenCore, we get bootcamp support as well as proper Kext injection (No more
 * 1080p screen
 
 ## SSDTs
-* PLUG - Plugin-type=1. Enables cpu power management
-* PNLF - Backlight Control
+* [PLUG](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-PLUG.dsl) - Plugin-type=1. Enables cpu power management
+* [PNLF](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/SSDT-PNLF.dsl) - Backlight Control
 * USBX - USB power
 * XPRW - Sleep fixes
 * DGFX - Disables dGPU only in macOS (still works in windows)
