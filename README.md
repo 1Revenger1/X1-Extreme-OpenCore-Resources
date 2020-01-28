@@ -29,6 +29,7 @@ With OpenCore, we get bootcamp support as well as proper Kext injection (No more
 * XPRW - Sleep fixes
 * DGFX - Disables dGPU only in macOS (still works in windows)
 * BRTK - Brightness Key patch (only affects macOS)
+* BATT - Battery
 
 ## Kexts
 * Lilu - Patching Kext required for many other kexts
