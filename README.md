@@ -38,7 +38,7 @@ With OpenCore, we get bootcamp support as well as proper Kext injection (No more
 * SMCSuperIO - Fan speed/temperature
 * WhateverGreen - Graphics Patching
 * VoodooInput - Magic Trackpad emulation
-* VoodooPS2Controller - Keyboard/trackpad. Requires Voodooinput
+* VoodooPS2Controller (Acidanthera version) - Keyboard/trackpad. Requires Voodooinput
   * Keyboard, Mouse, Trackpad
 * NVMeFix - Fixes NVMe power draw and power management
 * CPUFriend - Patches CPU data
