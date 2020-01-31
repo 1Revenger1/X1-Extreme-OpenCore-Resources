@@ -9,6 +9,7 @@ With OpenCore, we get bootcamp support as well as proper Kext injection (No more
 * Backlight Control
 * USB
 * Bluetooth (Might break if I replace wifi card)
+* Camera
 
 ### What doesn't work
 * SD Card reader in macOS (Maybe a fix, I haven't looked to be honest)
@@ -21,6 +22,7 @@ With OpenCore, we get bootcamp support as well as proper Kext injection (No more
 * Intel 512GB ssd
 * 1Tb Sabrant Rocket (TLC) - Boot disk for OC/MacOS
 * 1080p screen
+* Camera w/ Shutter (No IR for Windows Hello)
 
 ## SSDTs
 * [PLUG](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-PLUG.dsl) - Plugin-type=1. Enables cpu power management
