@@ -6,7 +6,7 @@ With OpenCore, we get bootcamp support as well as proper Kext injection (No more
 * Bootcamp switching/Booting windows through OpenCore
 * Fingerprint reader in Windows
 * Sleep in both oses (Hibernation in Windows too)
-  * Less than 1-2% every few hours for sleep
+  * Less than 1-2% battery used every few hours for sleep
 * Backlight Control
 * USB
 * Bluetooth (Might break if I replace wifi card)
