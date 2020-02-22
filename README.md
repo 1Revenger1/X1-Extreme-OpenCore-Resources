@@ -15,7 +15,12 @@ With OpenCore, we get bootcamp support as well as proper Kext injection (No more
 ### What doesn't work
 * SD Card reader in macOS (Maybe a fix, I haven't looked to be honest)
 * Hibernation in macOS (Haven't really tried to fix)
-* Wifi - I haven't replaced the wifi card yet
+
+### Note on Wifi
+
+Currently helping out a little with the development of a wifi kext for intel cards:
+* [zxystd's](https://github.com/zxystd/AppleIntelWifiAdapter/tree/feature-rewrite-all)
+* [hatf0's](https://github.com/AppleIntelWifi/adapter)
 
 ## Specs
 * I7 8750h
