@@ -83,6 +83,14 @@ DefinitionBlock("", "SSDT", 2, "GWYD", "BATT", 0) {
     
     External (\_SB.PCI0.GFX0.CLID, UnknownObj)
     
+    // Old methods
+    External (\_SB.PCI0.LPCB.EC.XJTP, MethodObj)
+    External (\_SB.PCI0.LPCB.EC.XBIF, MethodObj)
+    External (\_SB.PCI0.LPCB.EC.XBIX, MethodObj)
+    External (\_SB.PCI0.LPCB.EC.XBST, MethodObj)
+    External (\_GPE.XL17, MethodObj)
+    External (\XWAK, MethodObj)
+    
     /*
      *    Rehabman's Methods
      */
@@ -193,11 +201,16 @@ DefinitionBlock("", "SSDT", 2, "GWYD", "BATT", 0) {
         
         Method (AJTP, 3, NotSerialized)
         {
+            if(!_OSI("Darwin")) {
+                Return ( XJTP( Arg0, Arg1, Arg2))           
+            }
+            
             Local0 = Arg1
             Acquire (BATM, 0xFFFF)
             HIID = Arg0
             Local1 = B1B2(RC00, RC01) // SBRC
             Release (BATM)
+            
             If ((Arg0 == 0x00))
             {
                 Local2 = HB0S /* \_SB_.PCI0.LPCB.EC__.HB0S */
@@ -244,6 +257,10 @@ DefinitionBlock("", "SSDT", 2, "GWYD", "BATT", 0) {
 
         Method (GBIF, 3, NotSerialized)
         {
+            if(!_OSI("Darwin")) {
+                Return ( XBIF( Arg0, Arg1, Arg2))           
+            }
+            
             Acquire (BATM, 0xFFFF)
             If (Arg2)
             {
@@ -341,6 +358,10 @@ DefinitionBlock("", "SSDT", 2, "GWYD", "BATT", 0) {
 
         Method (GBIX, 3, NotSerialized)
         {
+            if(!_OSI("Darwin")) {
+                Return ( XBIX( Arg0, Arg1, Arg2))           
+            }
+            
             Acquire (BATM, 0xFFFF)
             If (Arg2)
             {
@@ -434,6 +455,10 @@ DefinitionBlock("", "SSDT", 2, "GWYD", "BATT", 0) {
 
         Method (GBST, 4, NotSerialized)
         {
+            if(!_OSI("Darwin")) {
+                Return ( XBST( Arg0, Arg1, Arg2, Arg3))           
+            }
+            
             Acquire (BATM, 0xFFFF)
             If ((Arg1 & 0x20))
             {
@@ -575,6 +600,11 @@ DefinitionBlock("", "SSDT", 2, "GWYD", "BATT", 0) {
     Scope (\_GPE) {
         Method (_L17, 0, NotSerialized)  // _Lxx: Level-Triggered GPE, xx=0x00-0xFF
         {
+            if(!_OSI("Darwin")) {
+                \_GPE.XL17()
+                Return ()           
+            }
+            
             Local0 = B1B2(\_SB.PCI0.LPCB.EC.AC10,\_SB.PCI0.LPCB.EC.AC11)
             \RRBF = Local0
             Sleep (0x0A)
@@ -609,6 +639,10 @@ DefinitionBlock("", "SSDT", 2, "GWYD", "BATT", 0) {
 
     Method (OWAK, 1, NotSerialized)
     {
+        if(!_OSI("Darwin")) {
+            Return ( XWAK( Arg0))           
+        }
+        
         ADBG ("OWAK")
         If (_OSI("Darwin") && Arg0 == 0x03) {
             \_SI._SST(0x01) // Reset LED to working state
