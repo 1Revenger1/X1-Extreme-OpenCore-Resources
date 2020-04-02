@@ -1,4 +1,4 @@
-DefinitionBlock ("", "SSDT", 2, "APPLE", "_USBX", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "GWYD", "_USBX", 0x00000000)
 {
     Device (_SB.USBX)
     {
