@@ -1,9 +1,12 @@
 # X1-Extreme-OpenCore-Resources
 
+**Last OC Version**: 0.5.7
+
 With OpenCore, we get bootcamp support as well as proper Kext injection (No more Clover breaking SIP, yay!). OpenCore also has a cleaner code base and boots faster. This repo also provides ACPI "hotpatches" for battery status, rather than needing a patched DSDT provided. This makes it more likely to survive BIOS updates without requiring any other patches. Also makes it so that if we ever need to make anything OS specific, it is easier to do so.
 
 ### What works
 * Bootcamp switching/Booting windows through OpenCore
+* Booting linux through OpenCore (Don't think I can add it to startup pane though in macOS unfortunately)
 * Fingerprint reader in Windows
 * Sleep in both oses (Hibernation in Windows too)
   * Less than 1-2% battery used every few hours for sleep
