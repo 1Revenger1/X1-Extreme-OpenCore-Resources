@@ -19,8 +19,7 @@ With OpenCore, we get bootcamp support as well as proper Kext injection (No more
 ### Note on Wifi
 
 Currently helping out a little with the development of a wifi kext for intel cards:
-* [zxystd's](https://github.com/zxystd/AppleIntelWifiAdapter/tree/feature-rewrite-all)
-* [hatf0's](https://github.com/AppleIntelWifi/adapter) - this one has scanning almost working for the AC9560
+* [hatf0's](https://github.com/AppleIntelWifi/adapter) - this one has working scanning for the AC9560
 
 ## Specs
 * I7 8750h
