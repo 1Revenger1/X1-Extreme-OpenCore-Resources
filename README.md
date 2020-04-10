@@ -9,15 +9,15 @@ I'd strongly suggest reading https://desktop.dortania.ml/ (Khronokernel's OpenCo
 
 ### What works
 * Booting Linux, Windows, and MacOS through OpenCore.
- * Bootcamp switching like on a real mac works in MacOS and Windows
- * Only thing that really breaks in Windows is Lenovo Vantage. You can use Linooox to edit battery parameters though. This also does reset the fingerprint reader and require you to re-add your finger. This also completely breaks using your fingerprint to allow the device to boot (before any OS loads).
+  * Bootcamp switching like on a real mac works in MacOS and Windows
+  * Only thing that really breaks in Windows is Lenovo Vantage. You can use Linooox to edit battery parameters though. This also does reset the fingerprint reader and require you to re-add your finger. This also completely breaks using your fingerprint to allow the device to boot (before any OS loads).
 * Sleeping in MacOS
   * Less than 1-2% battery used every few hours for sleep
 * Backlight Control
 * USB
 * Intel Bluetooth
- * Require's zxystd's IntelBluetoothFirmware - though it causes panics waking from sleep
- * Seems to work better with firmware uploaded for wifi too.
+  * Require's zxystd's IntelBluetoothFirmware - though it causes panics waking from sleep
+  * Seems to work better with firmware uploaded for wifi too.
 * Camera/Mic
 * Volume and Backlight keys
 
@@ -62,20 +62,20 @@ You can fit in an airport adapter in the slot, though you lose bluetooth as that
 * WhateverGreen - Graphics Patching
 * VoodooInput - Magic Trackpad emulation
 * VoodooPS2Controller (Acidanthera version) - Keyboard/trackpad. Requires Voodooinput
-  * Keyboard, Mouse, Trackpad
+   * Keyboard, Mouse, Trackpad
 * NVMeFix - Fixes NVMe power draw and power management
 * CPUFriend - Patches CPU data
 * CPUFriendDataProvider - Provides data for CPUFriend - lower clock speeds. Made from CPUFriendFriend by CorpNewt
 * Zxystd's IntelBluetoothInjector
- * IntelBluetoothInjector
- * IntelBluetoothFirmware
- * Additional Bluetooth functionality - does break sleep though. Loading wifi firmware through the kext at AppleIntelWifi/adapter fixes this.
+  * IntelBluetoothInjector
+  * IntelBluetoothFirmware
+  * Additional Bluetooth functionality - does break sleep though. Loading wifi firmware through the kext at AppleIntelWifi/adapter fixes this.
 
 
 ## Device Properties
-iGPU
-* Apple GuC firmware for better iGPU performance
- * igfxpavp = 1
- * igfxfw = 2
-* Shikigva=128 - Disables patches for Fairplay 1.0 to try and use iGPU
- * This doesn't really add functionality and is more for experimentation. You can safely skip this.
+* iGPU
+  * Apple GuC firmware for better iGPU performance
+    * igfxpavp = 1
+    * igfxfw = 2
+  * Shikigva=128 - Disables patches for Fairplay 1.0 to try and use iGPU
+    * This doesn't really add functionality and is more for experimentation. You can safely skip this.
