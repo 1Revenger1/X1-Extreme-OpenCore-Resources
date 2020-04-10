@@ -5,24 +5,32 @@
 With OpenCore, we get bootcamp support as well as proper Kext injection (No more Clover breaking SIP, yay!). OpenCore also has a cleaner code base and boots faster. This repo also provides ACPI "hotpatches" for battery status, rather than needing a patched DSDT provided. This makes it more likely to survive BIOS updates without requiring any other patches. Also makes it so that if we ever need to make anything OS specific, it is easier to do so.
 
 ### What works
-* Bootcamp switching/Booting windows through OpenCore
-* Booting linux through OpenCore (Don't think I can add it to startup pane though in macOS unfortunately)
-* Fingerprint reader in Windows
-* Sleep in both oses (Hibernation in Windows too)
+* Booting Linux, Windows, and MacOS through OpenCore.
+ * Bootcamp switching like on a real mac works in MacOS and Windows
+ * Only thing that really breaks in Windows is Lenovo Vantage. You can use Linooox to edit battery parameters though. This also does reset the fingerprint reader and require you to re-add your finger. This also completely breaks using your fingerprint to allow the device to boot (before any OS loads).
+* Sleeping in MacOS
   * Less than 1-2% battery used every few hours for sleep
 * Backlight Control
 * USB
-* Bluetooth (Might break if I replace wifi card)
-* Camera
+* Intel Bluetooth
+ * Require's zxystd's IntelBluetoothFirmware - though it causes panics waking from sleep
+ * Seems to work better with firmware uploaded for wifi too.
+* Camera/Mic
+* Volume and Backlight keys
 
 ### What doesn't work
-* SD Card reader in macOS (Maybe a fix, I haven't looked to be honest)
 * Hibernation in macOS (Haven't really tried to fix)
+
+### Haven't Tested
+* SD Card Reader
+* Thunderbolt - No thunderbolt devices. USB C works fine
 
 ### Note on Wifi
 
 Currently helping out a little with the development of a wifi kext for intel cards:
 * [hatf0's](https://github.com/AppleIntelWifi/adapter) - this one has working scanning for the AC9560
+
+You can fit in an airport adapter in the slot, though you lose bluetooth as that isn't wired. Instead, bluetooth is wired to the PCH where the actual bluetooth module is. You can get bluetooth back by connecting the bluetooth specifically to the Smartcard port. I'm going to continue using my Intel 9560 as it works in other operating systems well and don't want to get an adapter.
 
 ## Specs
 * I7 8750h
@@ -31,6 +39,7 @@ Currently helping out a little with the development of a wifi kext for intel car
 * 1Tb Sabrant Rocket (TLC) - Boot disk for OC/MacOS
 * 1080p screen
 * Camera w/ Shutter (No IR for Windows Hello)
+* Intel 9560 Wifi card
 
 ## SSDTs
 * [PLUG](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-PLUG.dsl) - Plugin-type=1. Enables cpu power management
@@ -54,3 +63,16 @@ Currently helping out a little with the development of a wifi kext for intel car
 * NVMeFix - Fixes NVMe power draw and power management
 * CPUFriend - Patches CPU data
 * CPUFriendDataProvider - Provides data for CPUFriend - lower clock speeds. Made from CPUFriendFriend by CorpNewt
+* Zxystd's IntelBluetoothInjector
+ * IntelBluetoothInjector
+ * IntelBluetoothFirmware
+ * Additional Bluetooth functionality - does break sleep though. Loading wifi firmware through the kext at AppleIntelWifi/adapter fixes this.
+
+
+## Device Properties
+iGPU
+* Apple GuC firmware for better iGPU performance
+ * igfxpavp = 1
+ * igfxfw = 2
+* Shikigva=128 - Disables patches for Fairplay 1.0 to try and use iGPU
+ * This doesn't really add functionality and is more for experimentation. You can safely skip this.
