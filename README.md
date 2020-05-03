@@ -5,7 +5,7 @@
 With OpenCore, we get bootcamp support as well as proper Kext injection (No more Clover breaking SIP, yay!). OpenCore also has a cleaner code base and boots faster. This repo also provides ACPI "hotpatches" for battery status, rather than needing a patched DSDT provided. This makes it more likely to survive BIOS updates without requiring any other patches. Also makes it so that if we ever need to make anything OS specific, it is easier to do so.
 
 #### This repo is really meant to be used as a source of information to reference rather than provide a full EFI.
-I'd strongly suggest reading https://desktop.dortania.ml/ (Khronokernel's OpenCore Desktop Guide). [This laptop guide which references the Desktop Guide is not a bad read as well](https://dortania.github.io/oc-laptop-guide/)
+I'd strongly suggest reading https://dortania.github.io/OpenCore-Desktop-Guide/ (Dortania's OpenCore Desktop Guide). [This laptop guide which references the Desktop Guide is not a bad read as well](https://dortania.github.io/oc-laptop-guide/)
 
 ### What works
 * Booting Linux, Windows, and MacOS through OpenCore.
