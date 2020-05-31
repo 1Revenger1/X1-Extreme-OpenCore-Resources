@@ -28,6 +28,10 @@ I'd strongly suggest reading https://dortania.github.io/OpenCore-Desktop-Guide/ 
 * SD Card Reader
 * Thunderbolt - No thunderbolt devices. USB C works fine
 
+### Note on Trackpad
+
+This trackpad supports using buses other than PS2. I'm currently working on an SMBus implementation [here](https://github.com/VoodooSMBus/VoodooRMI). This provides coordinates for all 4 fingers, which means more accurate gestures. Acidanthera's VoodooPS2 does it's best to guess where all four fingers are using only 2 coordinates, and is much more stable right now.
+
 ### Note on Wifi
 
 Currently helping out a little with the development of a wifi kext for intel cards:
