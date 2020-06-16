@@ -1,6 +1,6 @@
 # X1-Extreme-OpenCore-Resources
 
-**Last OC Version**: 0.5.7
+**Last OC Version**: 0.5.9
 
 With OpenCore, we get bootcamp support as well as proper Kext injection (No more Clover breaking SIP, yay!). OpenCore also has a cleaner code base and boots faster. This repo also provides ACPI "hotpatches" for battery status, rather than needing a patched DSDT provided. This makes it more likely to survive BIOS updates without requiring any other patches. Also makes it so that if we ever need to make anything OS specific, it is easier to do so.
 
@@ -27,10 +27,6 @@ I'd strongly suggest reading https://dortania.github.io/OpenCore-Desktop-Guide/ 
 ### Haven't Tested
 * SD Card Reader
 * Thunderbolt - No thunderbolt devices. USB C works fine
-
-### Note on Trackpad
-
-This trackpad supports using buses other than PS2. I'm currently working on an SMBus implementation [here](https://github.com/VoodooSMBus/VoodooRMI). This provides coordinates for all 4 fingers, which means more accurate gestures. Acidanthera's VoodooPS2 does it's best to guess where all four fingers are using only 2 coordinates, though is much more stable right now.
 
 ### Note on Wifi
 
@@ -64,9 +60,14 @@ You can fit in an airport adapter in the slot, though you lose bluetooth as that
 * SMCProcessor - Processor Info
 * SMCSuperIO - Fan speed/temperature
 * WhateverGreen - Graphics Patching
-* VoodooInput - Magic Trackpad emulation
-* VoodooPS2Controller (Acidanthera version) - Keyboard/trackpad. Requires Voodooinput
-   * Keyboard, Mouse, Trackpad
+* VoodooPS2Controller (Acidanthera version) - Keyboard
+   * Keyboard
+* VoodooRMI - Trackpad/Trackstick
+   * Synaptics SMBus trackpad driver
+   * Requires VoodooPS2Trackpad/Mouse disabled
+   * Reliable four finger gestures and overall better tracking
+   * Does stop responding after sleeping at times - unknown why.
+      * If this is an issue, use VoodooPS2Mouse/Trackpad
 * NVMeFix - Fixes NVMe power draw and power management
 * CPUFriend - Patches CPU data
 * CPUFriendDataProvider - Provides data for CPUFriend - lower clock speeds. Made from CPUFriendFriend by CorpNewt
